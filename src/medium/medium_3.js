@@ -18,9 +18,20 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
+    let output = car_data.reduce(function(result, current) {
+        if(current['horsepower'] >= minHorsepower && current['torque'] >= minTorque){
+            result.push(current)
+        }
+        return result;
+      }, []);
 
+    output.sort(function(a, b) {
+        return b["horsepower"] - a["horsepower"];
+    });
+    return output;
 }
 
+//console.log(searchHighPower(mpg_data, 300, 250))
 
 /**
  * @param {array} car_data
@@ -33,9 +44,20 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
+    let output = car_data.reduce(function(result, current) {
+        if(current['highway_mpg'] >= minHighway && current['city_mpg'] >= minCity){
+            result.push(current)
+        }
+        return result;
+      }, []);
 
+    output.sort(function(a, b) {
+        return b["highway_mpg"] - a["highway_mpg"];
+    });
+    return output;
 }
 
+//console.log(searchMpg(mpg_data, 25, 35))
 
 /**
  * Find all cars where 'id' contains the search term below.
@@ -46,8 +68,21 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
+    let output = car_data.reduce(function(result, current) {
+        if(current['id'].toLowerCase().includes(searchTerm.toLowerCase())){
+            result.push(current)
+        }
+        return result;
+      }, []);
+    
+    output.sort(function(a, b) {
+        return a["id"].indexOf(searchTerm) - b["id"].indexOf(searchTerm);
+    });
 
+    return output;
 }
+
+//console.log(searchName(mpg_data,"pilot"))
 
 
 /**
@@ -59,5 +94,16 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
+    let output = car_data.reduce(function(result, current) {
+        for(let i=0;i<years.length;i++){
+            if(current['year'] === years[i]){
+                result.push(current)
+            }
+        }
+        return result;
+      }, []);
 
+    return output;
 }
+
+//console.log(searchByYear(mpg_data, [2010,2011]))
