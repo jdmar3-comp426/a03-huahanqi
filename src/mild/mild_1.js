@@ -43,7 +43,7 @@ export function getIncreasingArray(startNumber, endNumber) {
 export function maxAndMin(numbers) {
 const a = Math.min(...numbers);
 const b = Math.max(...numbers);
-const result = {min : a,max : b};
+const result = {max : b, min : a};
 return result;
 }
 
@@ -59,9 +59,10 @@ return result;
  */
 export function countArray(array) {
     const result = array.reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
-    console.log(result);
+    return result;
 }
 
+//console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]));
 /*
 console.log(sumToString(3,4));
 console.log(getIncreasingArray(3,7));

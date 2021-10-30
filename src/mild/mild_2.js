@@ -105,7 +105,7 @@ export function removeKeys(object, keyList) {
 }
 
 
-
+console.log(identifyArray(['some', 3, [3, 4], false]));
 
 /*
 console.log(identifyVariable('hh'));
