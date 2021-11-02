@@ -55,7 +55,7 @@ export const allCarStats = {
     ratioHybrids: sum_hybrid/getStatistics(year)["length"]
 };
 
-//console.log(allCarStats["allYearStats"])
+
 
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
@@ -172,9 +172,6 @@ for(let i=0; i<sortable.length; i++){
     final.push(Factory(sortable[i][0], pick_hybrid))
 }
 
-//console.log(final)
-
-
 let hybrid_2009 = mpg_data.reduce(function(allhybrid_2009, current) {
     if(current['year'] === 2009 && current['hybrid']){
         allhybrid_2009.push(current)
@@ -261,5 +258,7 @@ let nothybrid_2012 = mpg_data.reduce(function(nothybrid_2012, current) {
         2012: hybrid_non_hybrid(hybrid_2012, nothybrid_2012)
     }
 };
+
+//console.log(allCarStats["allYearStats"])
 //console.log(moreStats["makerHybrids"])
 //console.log(moreStats["avgMpgByYearAndHybrid"])

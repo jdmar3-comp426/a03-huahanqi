@@ -40,7 +40,6 @@ export function getMedian(array) {
         return inputArr;
     };
     var sorted = bubbleSort(array)
-    console.log(sorted)
     if(sorted.length % 2 === 0){
         var idx_1 = sorted.length /2 - 1
         var idx_2 = sorted.length /2
@@ -115,9 +114,12 @@ export function getStatistics(array) {
 }
 
 /*
+let array = [3,2,5,6,2,7,4,2,7,5];
+console.log(getMedian(array));
+console.log(getStatistics(array))
 console.log(getSum([1,2,3,4]))
 let array = [3,2,5,6,2,7,4,2,7,5];
 console.log(getMedian(array));
 let arr2 = [3,2,4,5,5,5,2,6,7]
-console.log(getStatistics(arr2))
+
 */
