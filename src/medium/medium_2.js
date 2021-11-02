@@ -208,7 +208,7 @@ let nothybrid_2011 = mpg_data.reduce(function(nothybrid_2011, current) {
     if(current['year'] === 2011 && !current['hybrid']){
         nothybrid_2011.push(current)
     }
-    return nothybrid_2009;
+    return nothybrid_2011;
   }, []);
 
   let hybrid_2012 = mpg_data.reduce(function(allhybrid_2012, current) {
